@@ -11,7 +11,11 @@ const ExpressError = require("./utils/expressError.js");
 const cors = require("cors");
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",  // Local development
+    "https://cognifylearning.vercel.app",  // Production frontend
+    "https://*.vercel.app"  // Vercel preview deployments
+  ],
   credentials: true
 }));
 
