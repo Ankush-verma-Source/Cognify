@@ -1,0 +1,17 @@
+# Vercel Configuration for Cognify Frontend
+
+# Build Settings
+buildCommand = "npm run build"
+outputDirectory = "dist"
+
+# Environment Variables (Set these in Vercel Dashboard)
+# VITE_API_URL = "https://your-backend-url.onrender.com"
+
+# Redirects for SPA routing
+[
+    [redirects
+    ]
+]
+  from = "/*"
+  to = "/index.html"
+  status = 200
