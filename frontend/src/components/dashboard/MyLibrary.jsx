@@ -81,7 +81,7 @@ const MyLibrary = ({ filteredContent, filterType, setFilterType, setActiveTab, o
                                             {typeInfo.label}
                                         </span>
                                     </div>
-                                    <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-indigo-300 transition-colors">
+                                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
                                         {item.meta?.topic || `${typeInfo.label} Generation`}
                                     </h3>
                                     <p className="text-xs text-slate-500 font-medium">

@@ -719,7 +719,7 @@ const Results = () => {
                                     {data.dataset_overview?.columns || 0} Attributes
                                 </span>
                             </div>
-                            <p className="text-lg text-slate-400 font-light leading-relaxed max-w-4xl line-clamp-3">
+                            <p className="text-lg text-slate-400 font-light leading-relaxed max-w-4xl">
                                 {typeof scentific_summary === 'string' ? scentific_summary : (scentific_summary?.text || scentific_summary?.summary || "No executive summary available for this dataset.")}
                             </p>
                         </div>
@@ -750,7 +750,7 @@ const Results = () => {
                                     {content.preview.slice(0, 5).map((row, i) => (
                                         <tr key={i} className="border-b border-white/5 hover:bg-white/5 transition-colors">
                                             {Object.values(row).map((val, j) => (
-                                                <td key={j} className="px-4 py-3 text-sm text-slate-300 font-light truncate max-w-[200px]">{String(val)}</td>
+                                                <td key={j} className="px-4 py-3 text-sm text-slate-300 font-light">{String(val)}</td>
                                             ))}
                                         </tr>
                                     ))}
@@ -961,7 +961,7 @@ const Results = () => {
                                     {data.data_quality_audit.score || 'N/A'}
                                 </span>
                             </div>
-                            <p className="text-xs text-slate-400 leading-relaxed max-w-[200px]">
+                            <p className="text-xs text-slate-400 leading-relaxed">
                                 {data.data_quality_audit.details || "Completeness and consistency verification complete."}
                             </p>
                         </div>
