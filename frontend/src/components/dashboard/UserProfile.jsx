@@ -143,6 +143,15 @@ const UserProfile = ({ user, setUser, editMode, setEditMode, handleLogout, onUpd
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="space-y-2">
+                                <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Username</label>
+                                <input
+                                    type="text"
+                                    value={user.username || ''}
+                                    disabled={true}
+                                    className="w-full bg-slate-950/50 border border-white/5 rounded-xl px-4 py-3 text-slate-400 focus:outline-none cursor-not-allowed"
+                                />
+                            </div>
+                            <div className="space-y-2">
                                 <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Display Name</label>
                                 <input
                                     type="text"
@@ -152,7 +161,7 @@ const UserProfile = ({ user, setUser, editMode, setEditMode, handleLogout, onUpd
                                     className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                                 />
                             </div>
-                            <div className="space-y-2">
+                            <div className="space-y-2 sm:col-span-2">
                                 <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Email Address</label>
                                 <input
                                     type="email"

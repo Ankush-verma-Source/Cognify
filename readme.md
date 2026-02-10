@@ -3,7 +3,7 @@
 > A comprehensive AI-powered learning platform combining advanced data analytics, intelligent content generation, and interactive study tools.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Cognify-181717?logo=github&logoColor=white)](https://github.com/Ankush-verma-Source/Cognify)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+<!-- [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) -->
 [![Node.js](https://img.shields.io/badge/Node.js-22.x-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
