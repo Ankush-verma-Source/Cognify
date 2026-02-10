@@ -212,6 +212,84 @@ pip install pandas numpy scipy openpyxl
 
 ---
 
+## 🚀 Deployment
+
+### Live Application
+
+**Frontend:** https://cognifylearning.vercel.app  
+**Backend API:** https://cognify-backend-tcqj.onrender.com  
+**GitHub:** https://github.com/Ankush-verma-Source/Cognify
+
+### Deploy Your Own Instance
+
+#### Frontend (Vercel)
+
+1. **Fork this repository**
+2. **Go to [vercel.com](https://vercel.com/)** and sign in with GitHub
+3. **Import your forked repository**
+4. **Configure:**
+   - Root Directory: `frontend`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+5. **Add Environment Variable:**
+   - Name: `VITE_API_URL`
+   - Value: Your backend URL (e.g., `https://your-backend.onrender.com`)
+6. **Deploy!**
+
+#### Backend (Render)
+
+1. **Go to [render.com](https://render.com/)** and sign in with GitHub
+2. **Create New Web Service** and connect your repository
+3. **Configure:**
+   - Root Directory: `backend`
+   - Build Command: `pip install pandas numpy scipy openpyxl && npm install`
+   - Start Command: `npm start`
+4. **Add Environment Variables:**
+   ```
+   NODE_ENV=production
+   SECRET=<generate-64-char-secret>
+   MONGODB_URI=<your-mongodb-atlas-uri>
+   GEMINI_API_KEY=<your-key>
+   OPENAI_API_KEY=<your-key>
+   GROQ_API_KEY=<your-key>
+   HUGGINGFACE_TOKEN=<your-token>
+   CLOUDINARY_CLOUD_NAME=<your-name>
+   CLOUDINARY_KEY=<your-key>
+   CLOUDINARY_SECRET=<your-secret>
+   ```
+5. **Deploy!**
+
+#### Database (MongoDB Atlas)
+
+1. **Create account** at [mongodb.com](https://www.mongodb.com/cloud/atlas)
+2. **Create a cluster** (free tier available)
+3. **Set up database user** and password
+4. **Configure Network Access:** Allow access from anywhere (0.0.0.0/0)
+5. **Get connection string** and add to backend environment variables
+
+### Post-Deployment
+
+1. **Update Frontend:** Add backend URL to Vercel environment variables
+2. **Redeploy Frontend:** Trigger redeploy in Vercel dashboard
+3. **Test:** Visit your frontend URL and test signup/login
+4. **Verify:** Check browser console for no CORS errors
+
+### Troubleshooting
+
+**CORS Errors:**
+- Ensure backend `app.js` includes your Vercel domain in CORS config
+- Clear browser cache and try again
+
+**503 Service Unavailable:**
+- Render free tier spins down after 15 min inactivity
+- First request takes 30-60 seconds to wake up
+
+**API Calls to Localhost:**
+- Verify `VITE_API_URL` is set in Vercel
+- Redeploy frontend after adding environment variable
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:

@@ -32,9 +32,3 @@ build/
 *.tmp
 temp/
 .cache/
-
-
-DEPLOYMENT_GUIDE.md
-FIXES_APPLIED.md
-PROJECT_REVIEW.md
-
