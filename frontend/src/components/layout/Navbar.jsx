@@ -32,6 +32,8 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Home', path: '/' },
+        { name: 'Features', path: '/features' },
+        { name: 'Docs', path: '/documentation' },
         { name: 'Models', path: '/models' },
         ...(isAuthenticated ? [{ name: 'Dashboard', path: '/dashboard' }] : []),
     ];

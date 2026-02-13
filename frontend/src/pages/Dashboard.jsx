@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LayoutDashboard, User, FolderOpen, Sparkles, LogOut, ChevronRight, PlusCircle } from 'lucide-react';
+import { LayoutDashboard, User, FolderOpen, Sparkles, LogOut, ChevronRight, PlusCircle, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 
@@ -19,6 +19,7 @@ const Dashboard = () => {
     const [editMode, setEditMode] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Tool State
     const [activeToolInfo, setActiveToolInfo] = useState('generate');
@@ -205,14 +206,99 @@ const Dashboard = () => {
                 )}
             </AnimatePresence>
 
+            {/* Mobile Navigation Drawer */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[100] md:hidden mt-20"
+                        />
+                        {/* Drawer */}
+                        <motion.div
+                            initial={{ x: '-100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '-100%' }}
+                            transition={{ type: "spring", damping: 25, stiffness: 210 }}
+                            className="fixed left-0 top-20 h-[calc(100vh-5rem)] w-[280px] bg-slate-950/95 backdrop-blur-xl border-r border-white/10 z-[101] md:hidden p-6 flex flex-col"
+                        >
+                            <div className="flex items-center justify-between mb-8">
+                                <div className="flex items-center gap-2 text-indigo-400 font-bold">
+                                    <Sparkles className="w-5 h-5" />
+                                    <span className="text-sm tracking-widest">DASHBOARD</span>
+                                </div>
+                            </div>
+
+                            <nav className="space-y-4 flex-1">
+                                <button
+                                    onClick={() => { setActiveTab('create'); setIsMobileMenuOpen(false); }}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${activeTab === 'create' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:bg-white/5'}`}
+                                >
+                                    <PlusCircle className="w-5 h-5" />
+                                    <span className="font-medium">Create New</span>
+                                </button>
+                                <button
+                                    onClick={() => { setActiveTab('overview'); setIsMobileMenuOpen(false); }}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${activeTab === 'overview' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:bg-white/5'}`}
+                                >
+                                    <FolderOpen className="w-5 h-5" />
+                                    <span className="font-medium">My Library</span>
+                                </button>
+                                <button
+                                    onClick={() => { setActiveTab('profile'); setIsMobileMenuOpen(false); }}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${activeTab === 'profile' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:bg-white/5'}`}
+                                >
+                                    <User className="w-5 h-5" />
+                                    <span className="font-medium">Profile</span>
+                                </button>
+                            </nav>
+
+                            {user && (
+                                <div className="pt-6 border-t border-white/5">
+                                    <div className="flex items-center gap-3 px-4">
+                                        <div className="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center font-bold">
+                                            {user.name.charAt(0)}
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-sm font-medium truncate">{user.name}</p>
+                                            <p className="text-xs text-slate-500 truncate">{user.email}</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={handleLogout}
+                                        className="w-full mt-6 flex items-center gap-2 text-red-400 p-4 rounded-xl hover:bg-red-500/10 transition-all font-bold text-sm"
+                                    >
+                                        <LogOut className="w-4 h-4" /> Sign Out
+                                    </button>
+                                </div>
+                            )}
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+
             {/* Main Content Area */}
             <motion.main
                 className={`relative w-full min-h-screen transition-all duration-300 ease-in-out ${isSidebarOpen ? 'md:pl-72' : 'md:pl-0'}`}
             >
                 {/* Mobile Header (Hidden on Desktop) */}
-                <header className="md:hidden sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-white/5 p-4 flex items-center justify-between">
-                    <span className="font-bold text-lg">Cognify</span>
-                    <button className="p-2 text-slate-400"><LayoutDashboard /></button>
+                <header className="md:hidden sticky top-20 z-[45] bg-[#020617]/95 backdrop-blur-md border-b border-white/5 p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+                        <span className="font-bold text-sm tracking-widest text-slate-400 uppercase">
+                            {activeTab.replace('-', ' ')}
+                        </span>
+                    </div>
+                    <button
+                        onClick={() => setIsMobileMenuOpen(true)}
+                        className="p-2 text-indigo-400 hover:text-white bg-indigo-500/10 rounded-lg border border-indigo-500/20"
+                    >
+                        <LayoutDashboard className="w-5 h-5" />
+                    </button>
                 </header>
 
                 <div className="p-6 lg:p-10 max-w-7xl mx-auto">

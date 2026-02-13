@@ -27,13 +27,13 @@ const FeatureSection = ({ feature, index, onFeatureClick }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-center py-20 border-b border-white/5 last:border-0`}
+            className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-24 items-center py-12 lg:py-20 border-b border-white/5 last:border-0`}
         >
             <div className="flex-1 space-y-6">
                 <div className={`inline-flex p-3 rounded-2xl bg-${feature.color}-500/10 border border-${feature.color}-500/20 mb-2`}>
                     <feature.icon className={`w-8 h-8 text-${feature.color}-400`} />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
                     {feature.title}
                 </h2>
                 <p className="text-lg text-slate-400 leading-relaxed">
@@ -225,10 +225,10 @@ const Features = () => {
                         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-bold mb-6">
                             <Dna className="w-4 h-4" /> The Power of Multi-Modal AI
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight font-outfit">
+                        <h1 className="text-4xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tight font-outfit">
                             Platform <span className="text-gradient">Capabilities</span>
                         </h1>
-                        <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-base md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed px-4">
                             Discover the full suite of AI-driven tools designed to accelerate your workflow,
                             deepen your learning, and transform how you interact with information.
                         </p>

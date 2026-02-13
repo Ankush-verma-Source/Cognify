@@ -43,7 +43,7 @@ const UserGuide = () => (
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
-        className="glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/5 space-y-12"
+        className="glass-panel p-5 md:p-16 rounded-3xl md:rounded-[2.5rem] border border-white/5 space-y-12"
     >
         <UserGuideSection id="getting-started" icon={Zap} title="Getting Started: Your First 5 Minutes">
             <p className="mb-4">

@@ -704,14 +704,14 @@ const Results = () => {
         return (
             <div className="space-y-8 animate-in fade-in duration-700">
                 {/* Dashboard Header */}
-                <div className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 border border-white/5 rounded-3xl p-8 backdrop-blur-sm">
-                    <div className="flex items-start gap-4">
-                        <div className="p-3 bg-indigo-500 rounded-2xl shadow-lg shadow-indigo-500/20">
-                            <BarChart2 className="w-8 h-8 text-white" />
+                <div className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 border border-white/5 rounded-2xl sm:rounded-3xl p-5 sm:p-8 backdrop-blur-sm">
+                    <div className="flex flex-col sm:flex-row items-start gap-4">
+                        <div className="p-3 bg-indigo-500 rounded-xl sm:rounded-2xl shadow-lg shadow-indigo-500/20">
+                            <BarChart2 className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                         </div>
                         <div>
-                            <h1 className="text-3xl font-bold text-white mb-2">{dashboard_title || "Analytics Dashboard"}</h1>
-                            <div className="flex gap-4 mb-3">
+                            <h1 className="text-xl sm:text-3xl font-bold text-white mb-2 leading-tight">{dashboard_title || "Analytics Dashboard"}</h1>
+                            <div className="flex flex-wrap gap-2 sm:gap-4 mb-3">
                                 <span className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-[10px] font-bold text-indigo-400 uppercase tracking-tighter">
                                     {data.dataset_overview?.rows || 0} Records Analyzed
                                 </span>
@@ -719,7 +719,7 @@ const Results = () => {
                                     {data.dataset_overview?.columns || 0} Attributes
                                 </span>
                             </div>
-                            <p className="text-lg text-slate-400 font-light leading-relaxed max-w-4xl">
+                            <p className="text-sm sm:text-lg text-slate-400 font-light leading-relaxed max-w-4xl">
                                 {typeof scentific_summary === 'string' ? scentific_summary : (scentific_summary?.text || scentific_summary?.summary || "No executive summary available for this dataset.")}
                             </p>
                         </div>
@@ -735,7 +735,7 @@ const Results = () => {
 
                 {/* Dataset Preview */}
                 {content.preview && content.preview.length > 0 && (
-                    <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8 backdrop-blur-sm overflow-hidden">
+                    <div className="bg-slate-900/40 border border-white/5 rounded-2xl sm:rounded-3xl p-5 sm:p-8 backdrop-blur-sm overflow-hidden">
                         <SectionHeader icon={Layers} title="Dataset Snapshot" color="text-indigo-300" />
                         <div className="overflow-x-auto rounded-xl border border-white/5">
                             <table className="w-full text-left border-collapse min-w-[600px]">
@@ -771,7 +771,7 @@ const Results = () => {
                         <div
                             key={chart.id || i}
                             className={`
-                                bg-slate-900/50 border border-white/5 rounded-3xl p-6 backdrop-blur-sm flex flex-col group hover:border-white/10 transition-all
+                                bg-slate-900/50 border border-white/5 rounded-2xl sm:rounded-3xl p-5 sm:p-6 backdrop-blur-sm flex flex-col group hover:border-white/10 transition-all
                                 ${chart.layout === 'full' ? 'lg:col-span-2 xl:col-span-2' : ''}
                             `}
                         >

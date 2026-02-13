@@ -96,51 +96,54 @@ const Home = () => {
         <div className="min-h-screen overflow-x-hidden selection:bg-indigo-500/30">
             {/* Background Decorations */}
             <div className="fixed inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen animate-float" />
-                <div className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen animate-float-delayed" />
-                <div className="absolute bottom-[-10%] left-[20%] w-[400px] h-[400px] bg-pink-600/10 rounded-full blur-[100px] mix-blend-screen animate-float" />
+                <div className="absolute top-[-10%] md:top-[-20%] left-[-10%] md:left-[-20%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-indigo-600/10 md:bg-indigo-600/20 rounded-full blur-[80px] md:blur-[120px] mix-blend-screen animate-float" />
+                <div className="absolute top-[30%] md:top-[15%] right-[-10%] md:right-[-15%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-purple-600/10 md:bg-purple-600/20 rounded-full blur-[80px] md:blur-[150px] mix-blend-screen animate-float-delayed" />
+                <div className="absolute bottom-[-10%] left-[10%] md:left-[20%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-600/10 rounded-full blur-[80px] md:blur-[100px] mix-blend-screen animate-float" />
             </div>
 
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 max-w-7xl mx-auto">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 lg:pt-48 lg:pb-32 px-4 max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-center lg:text-left flex flex-col items-center lg:items-start"
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-300 text-sm font-medium mb-6 backdrop-blur-sm">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
                             </span>
-                            Multi-Modal Support
+                            Next-Gen Learning Engine
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1] font-outfit">
-                            Unlock Your <br />
-                            <span className="text-gradient text-glow">Learning Potential</span>
+                        <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1] font-outfit">
+                            Unlock Your <br className="hidden sm:block" />
+                            <span className="text-gradient text-glow px-2">Learning Potential</span>
                         </h1>
-                        <p className="text-lg text-slate-400 mb-8 leading-relaxed max-w-lg">
+                        <p className="text-base sm:text-lg text-slate-400 mb-8 leading-relaxed max-w-lg">
                             Cognify uses advanced AI to transform your study materials into interactive quizzes, flashcards, and summaries in seconds.
                         </p>
-                        <div className="flex flex-wrap gap-4">
-                            <button onClick={() => handleFeatureClick('generate')} className="btn-primary group flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start w-full sm:w-auto">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => handleFeatureClick('generate')}
+                                className="btn-primary group flex items-center justify-center gap-2 px-10"
+                            >
                                 Start Creating <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button className="glass-button px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-all">
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="glass-button px-10 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-all text-center"
+                            >
                                 Watch Demo
-                            </button>
+                            </motion.button>
                         </div>
 
-                        <div className="mt-12 flex items-center gap-6 text-slate-500 text-sm font-medium">
-                            {/* <p>Trusted by students from</p> */}
+                        <div className="mt-12 flex items-center gap-6 text-slate-500 text-sm font-medium justify-center lg:justify-start">
                             <p>Trusted by students</p>
-                            {/* <div className="flex gap-4 opacity-70 grayscale"> */}
-                            {/* Placeholder Logos (Text for now) */}
-                            {/* <span>Stanford</span>
-                                <span>MIT</span>
-                                <span>Harvard</span> */}
-                            {/* </div> */}
                         </div>
                     </motion.div>
 
@@ -149,9 +152,9 @@ const Home = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, ease: "easeOut" }}
-                        className="relative hidden lg:block h-[400px] w-full perspective-1000"
+                        className="relative h-[300px] sm:h-[400px] w-full perspective-1000"
                     >
-                        <div className="relative w-full h-full flex items-center justify-center transform-style-3d">
+                        <div className="relative w-full h-full flex items-center justify-center transform-style-3d scale-[0.6] sm:scale-100">
                             {/* Central Core */}
                             <div className="relative z-20 animate-float">
                                 <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow"></div>
@@ -264,9 +267,7 @@ const Home = () => {
                                     key={i}
                                     className="absolute w-1 h-1 bg-white rounded-full opacity-40 animate-pulse"
                                     style={{
-
                                         top: `${Math.random() * 80 + 10}%`,
-
                                         left: `${Math.random() * 80 + 10}%`,
                                         animationDelay: `${Math.random() * 5}s`,
                                         animationDuration: `${Math.random() * 3 + 2}s`
@@ -288,17 +289,24 @@ const Home = () => {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {features.map((feature, idx) => (
-                            <TiltCard
+                            <motion.div
                                 key={feature.id}
-                                className="glass-panel p-8 rounded-3xl border border-white/5 hover:border-indigo-500/30 transition-colors group cursor-pointer"
-                                onClick={() => handleFeatureClick(feature.id)}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
                             >
-                                <div className="w-14 h-14 rounded-2xl bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 group-hover:bg-indigo-500/20">
-                                    <feature.icon className="w-7 h-7 text-indigo-400" />
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{feature.label}</h3>
-                                <p className="text-slate-400 leading-relaxed text-sm">{feature.desc}</p>
-                            </TiltCard>
+                                <TiltCard
+                                    className="h-full glass-panel p-8 rounded-3xl border border-white/5 hover:border-indigo-500/30 transition-colors group cursor-pointer"
+                                    onClick={() => handleFeatureClick(feature.id)}
+                                >
+                                    <div className="w-14 h-14 rounded-2xl bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 group-hover:bg-indigo-500/20">
+                                        <feature.icon className="w-7 h-7 text-indigo-400" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white mb-3">{feature.label}</h3>
+                                    <p className="text-slate-400 leading-relaxed text-sm">{feature.desc}</p>
+                                </TiltCard>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
