@@ -207,7 +207,7 @@ const Dashboard = () => {
 
             {/* Main Content Area */}
             <motion.main
-                className={`flex-1 min-h-screen relative transition-all duration-300 ease-in-out ${isSidebarOpen ? 'md:ml-72' : 'md:ml-0'}`}
+                className={`relative w-full min-h-screen transition-all duration-300 ease-in-out ${isSidebarOpen ? 'md:pl-72' : 'md:pl-0'}`}
             >
                 {/* Mobile Header (Hidden on Desktop) */}
                 <header className="md:hidden sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-white/5 p-4 flex items-center justify-between">
